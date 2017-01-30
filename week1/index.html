@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style>
+    #map0{
+      height: 40%;
+    }
+    #map1{
+      height: 40%;
+    }
+    #map2{
+      height: 40%;
+    }
+    </style>
+
+    <title>One Page Wonder - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="css/jade_css.css" rel="stylesheet">
+    <link href="css/one-page-wonder.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href = "https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css">
+	  <script src ="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Everything Is Spatial (Week 1)</a>
+            </div>
+
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Full Width Image Header -->
+    <header class="header-image">
+        <div class="headline">
+            <div class="container">
+                <h1>My Favorite Places</h1>
+                <h2>In New York</h2>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <hr class="featurette-divider">
+
+        <!-- First Featurette -->
+        <div class="featurette" id="nitehawk">
+          <div id="map2"></div>
+            <img class="featurette-image img-circle img-responsive pull-right" src="img/nitehawk.jpg">
+            <h2 class="featurette-heading">Nitehawk Cinema
+                <span class="text-muted">Is New York’s premier dine-in theater.</span>
+            </h2>
+            <p class="lead">The most wonderful indie theater, where you can find all the weird, nostalgic films.  The food is banging and I love how they have specials inspired by the movies they show.</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Second Featurette -->
+        <div class="featurette" id="highline">
+          <div id="map1"></div>
+            <img class="featurette-image centered-and-cropped img-circle img-responsive pull-left" src="img/highline.jpg">
+            <h2 class="featurette-heading">High Line
+                <span class="text-muted">Is an elevated freight rail line transformed into a public park on Manhattan’s West Side.</span>
+            </h2>
+            <p class="lead">The landscaping, design and concept of this park is incredible! It's a "recycled" train track turned park. Great place to catch a sunset of the city and take a nice walk with an amazing view.</p>
+        </div>
+
+        <hr class="featurette-divider">
+
+        <!-- Third Featurette -->
+        <div class="featurette" id="diabeacon">
+            <div id="map0"></div>
+            <div class="row"></div>
+            <img class="featurette-image img-circle img-responsive pull-right" src="img/diabeacon.jpg" >
+            <h2 class="featurette-heading">Dia:Beacon
+                <span class="text-muted">Is a museum for the Dia Art Foundation's collection of art.</span>
+            </h2>
+            <p class="lead">Great collection of minimalist art, many are site specific installations making Dia a very special place.</p>
+
+          </div>
+          </div>
+
+          <hr class="featurette-divider">
+          <!-- Footer -->
+          <footer>
+            <div class="row">
+              <div class="col-lg-12">
+                <p>Created by Jade Lin 2017</p>
+              </div>
+            </div>
+          </footer>
+
+        </div>
+        <!-- /.container -->
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <script>
+        // var layer = new L.tileLayer('http://tile.stamen.com/watercolor/{z}/{x}/{y}.png', "watercolor", {
+        //   attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+        // });
+
+        // var layer = L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_nolabels/{z}/{x}/{y}.png', {
+        //   attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+        // });
+        var map0 = L.map('map0').setView([41.500718, -73.982641],13);
+        var layer = new L.tileLayer('http://tile.stamen.com/terrain/{z}/{x}/{y}.png', "terrain", {
+          attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+        });
+        map0.addLayer(layer);
+        var marker = L.marker([41.500718, -73.982641]).addTo(map0);
+        marker.bindPopup("<b>Come and visit</b><br>Dia:Beacon!").openPopup();
+
+
+        var map1 = L.map('map1').setView([40.747993, -74.004765],13);
+        var layer1 = new L.tileLayer('http://tile.stamen.com/watercolor/{z}/{x}/{y}.png', "watercolor", {
+          attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+        });
+        map1.addLayer(layer1);
+        var marker1 = L.marker([40.747993, -74.004765]).addTo(map1);
+        marker1.bindPopup("<b>Come and visit</b><br>High Line!").openPopup();
+
+        var map2 = L.map('map2').setView([40.716070, -73.962452],13);
+        var layer2 = new L.tileLayer('http://tile.stamen.com/toner/{z}/{x}/{y}.png', "toner", {
+          attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+        });
+        map2.addLayer(layer2);
+        var marker2 = L.marker([40.716070, -73.962452]).addTo(map2);
+        marker2.bindPopup("<b>Enjoy</b><br>the great movies!").openPopup();
+        // var map2 = L.map('map2', {
+        //   scrollWheelZoom: false,
+        //   center: [40.761433, -73.977622],
+        //   zoom: 16
+        // });
+        //
+        // map2.addLayer(layer);
+        </script>
+
+</body>
+
+</html>
